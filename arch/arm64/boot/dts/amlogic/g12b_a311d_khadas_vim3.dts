@@ -7,7 +7,7 @@
 	/delete-node/ memory@00000000;
 
 	auge_sound {
-		/delete-property/ avout_mute-gpios;
+		/delete-property/ spk_mute-gpios;
 	};
 
 	gpioleds {
