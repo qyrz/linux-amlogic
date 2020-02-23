@@ -2,6 +2,8 @@
 #include "coreelec_common.dtsi"
 
 /{
+	/delete-node/ dvb;
+
 	/delete-node/ auge_sound;
 	auge_sound {
 		compatible = "amlogic, g12a-sound-card";
@@ -73,6 +75,10 @@
 	};
 };
 
+&pinctrl_aobus {
+	/delete-node/ dvb_s_ts0_pins;
+};
+
 &meson_fb {
 	mem_alloc = <1>;
 };
@@ -91,12 +97,12 @@
 				&clkc CLKID_MPLL2>;
 		clock-names = "mclk", "clk_srcpll";
 		i2s2hdmi = <1>;
-		mclk_pad = <1>;  /* 0: mclk_0; 1: mclk_1 */
+		mclk_pad = <1>; /* 0: mclk_0; 1: mclk_1 */
 		status = "okay";
 	};
 
 	spdifa: spdif@0 {
-		pinctrl-0 = <&spdifout /*&spdifin*/>;
+		pinctrl-0 = <&spdifout>;
 	};
 };
 
@@ -112,10 +118,4 @@
 	cali_val = <0x10000>;
 	rx_delay = <0>;
 	auto_cali_idx = <0>;
-};
-
-&sd_emmc_a {
-	sdio {
-		f_max = <170000000>;
-	};
 };

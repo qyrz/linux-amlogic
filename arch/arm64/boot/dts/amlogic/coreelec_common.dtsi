@@ -85,11 +85,23 @@
 		reg = <0x0 0xFF800000 0x0 0x400>;
 	};
 
+	/delete-node/ amlogic_battery;
+	/delete-node/ amlogic_charger;
+
 	gpioleds {
 		sys_led {
 			/delete-property/ retain-state-suspended;
 		};
 	};
+};
+
+&audiobus {
+	/delete-node/ pdm;
+};
+
+&pinctrl_periphs {
+	/delete-node/ spdifin;
+	/delete-node/ pdmin;
 };
 
 &meson_fb {
